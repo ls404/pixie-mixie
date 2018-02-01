@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>pixie mixie</title>
+    <!--TODO to be erased-->
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">-->
+    <!--Font for the title - suppresses Monoton-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <!--Animate.css is used for fancy animations-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!--<script src="https://use.fontawesome.com/7d74c469c8.js"></script>-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <!--https://jwarby.github.io/jquery-awesome-cursor/#using-different-fonts-->
+    <script src="https://cdn.rawgit.com/jwarby/jquery-awesome-cursor/master/dist/jquery.awesome-cursor.min.js"></script>
+
+
+
+    <!-- <img src="assets/pixiemixie.ico"/> -->
+    <link rel="shortcut icon" href="assets/pixiemixie.ico" type="image/x-icon">
+</head>
+
+<body>
+<span id="buttons">
+    <!--TODO TO BE DELETED AT THE END-->
+    <span>
+        <form id="sizePicker">
+    <!--Grid Height:-->
+    <!--<input type="number" id="input_height" name="height" min="1" value="1">-->
+    <!--Grid Width:-->
+    <!--<input type="number" id="input_width" name="width" min="1" value="1">-->
+    <input type="submit">
+</form>
+    </span>
+     <!--TODO-->
+        <span id="random-color-from-palettes">
+            <i class="fa pencil-alt fa-3x" aria-hidden="true"></i>
+        </span>
+    <!--TODO-->
+        <span id="random-palettes">
+            <i class="fa edit fa-3x" aria-hidden="true"></i>
+        </span>
+     <!--TODO-->
+        <span id="music">
+            <i class="fas fa-music fa-3x" aria-hidden="true"></i>
+        </span>
+     <!--TODO-->
+        <span id="fill-all">
+            <i class="fas fa-paint-brush fa-3x" aria-hidden="true"></i>
+        </span>
+    <!--TODO-->
+        <span id="all-dynamics">
+            <i class="fa fa-cog fa-spin fa-3x" aria-hidden="true"></i>
+        </span>
+        <span id="show-left-sidebar">
+            <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+        </span>
+        <span id="show-grid">
+            <i class="fa fa-th fa-3x" aria-hidden="true"></i>
+        </span>
+    <!--TODO-->
+        <span id="eraser">
+            <i class="fa fa-eraser fa-3x" aria-hidden="true"></i>
+        </span>
+        <span id="reset">
+            <i class="far fa-trash-alt fa-3x" aria-hidden="true"></i>
+        </span>
+    <!--TODO-->
+        <span id="TODO2">
+            <i class="far fa-question-circle fa-3x" aria-hidden="true"></i>
+        </span>
+    </span>
+<div id="grid-creator-popup" class="animated lightSpeedIn">
+
+
+    <table>
+
+        <tr id="cell-size-select">
+            <td id="size1">
+                <i class="fa fa-adjust fa-1x" aria-hidden="true"></i>
+            </td>
+            <td id="size2">
+                <i class="fa fa-adjust fa-2x" aria-hidden="true"></i>
+            </td>
+            <td id="size3">
+                <i class="fa fa-adjust fa-3x" aria-hidden="true"></i>
+            </td>
+            <td id="size4">
+                <i class="fa fa-adjust fa-4x" aria-hidden="true"></i>
+            </td>
+            <td id="size5">
+                <i class="fa fa-adjust fa-5x" aria-hidden="true"></i>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <i class="fa fa-arrows-alt-h" aria-hidden="true"></i>
+    <p></p>
+    <input type="range" name="x" id="range-x" min='5' onchange="currentX = this.value; console.log(this.value)">
+    <br>
+    <i class="fa fa-arrows-alt-v" aria-hidden="true"></i>
+    <br>
+    <p></p>
+    <input type="range" name="y" id="range-y" min="5">
+    <br>
+    <div id="btn-generate-grid">
+        <i class="fa fa-table fa-3x animated infinite jello" aria-hidden="true"></i>
+    </div>
+</div>
+<div id="left-sidebar">
+
+    <table id="format-grid">
+        <tr>
+            <td id="format0" class="cell-format-1"></td>
+            <td id="format1" class="cell-format-2"></td>
+            <td id="format2" class="cell-format-3"></td>
+            <td id="format3" class="cell-format-4"></td>
+            <td id="format4" class="cell-format-5"></td>
+            <td id="format5" class="cell-format-6"></td>
+        </tr>
+        <tr>
+            <td id="format6" class="cell-format-7"></td>
+            <td id="format7" class="cell-format-8"></td>
+            <td id="format8" class="cell-format-9"></td>
+            <td id="format9" class="cell-format-10"></td>
+            <td id="format10" class="cell-format-11"></td>
+            <td id="format11" class="cell-format-12"></td>
+        </tr>
+        <tr>
+            <td id="format12">
+                <i class="fas fa-paw" aria-hidden="true"></i>
+            </td>
+            <td id="format13">
+                <i class="fas fa-adjust" aria-hidden="true"></i>
+            </td>
+            <td id="format14">
+                <i class="fas fa-asterisk" aria-hidden="true"></i>
+            </td>
+            <td id="format15">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </td>
+            <td id="format16">
+                <i class="fas fa-align-justify" aria-hidden="true"></i>
+            </td>
+            <td id="format17">
+                <i class="fas fa-th-large" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format18">
+                <i class="fas fa-circle" aria-hidden="true"></i>
+            </td>
+            <td id="format19">
+                <i class="far fa-circle" aria-hidden="true"></i>
+            </td>
+            <td id="format20">
+                <i class="fas fa-bell" aria-hidden="true"></i>
+            </td>
+            <td id="format21">
+                <i class="far fa-bell" aria-hidden="true"></i>
+            </td>
+            <td id="format22">
+                <i class="far fa-snowflake" aria-hidden="true"></i>
+            </td>
+            <td id="format23">
+                <i class="fas fa-cloud" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format24">
+                <i class="fas fa-futbol" aria-hidden="true"></i>
+            </td>
+            <td id="format25">
+                <i class="fas fa-umbrella" aria-hidden="true"></i>
+            </td>
+            <td id="format26">
+                <i class="fas fa-cube" aria-hidden="true"></i>
+            </td>
+            <td id="format27">
+                <i class="fas fa-cubes" aria-hidden="true"></i>
+            </td>
+            <td id="format28">
+                <i class="fas fa-rocket" aria-hidden="true"></i>
+            </td>
+            <td id="format29">
+                <i class="fas fa-plane" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format30">
+                <i class="fas fa-tree" aria-hidden="true"></i>
+            </td>
+            <td id="format31">
+                <i class="fas fa-leaf" aria-hidden="true"></i>
+            </td>
+            <td id="format32">
+                <i class="fas fa-anchor" aria-hidden="true"></i>
+            </td>
+            <td id="format33">
+                <i class="fas fa-gift" aria-hidden="true"></i>
+            </td>
+            <td id="format34">
+                <i class="fas fa-birthday-cake" aria-hidden="true"></i>
+            </td>
+            <td id="format35">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format36">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+            </td>
+            <td id="format37">
+                <i class="far fa-heart" aria-hidden="true"></i>
+            </td>
+            <td id="format38">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </td>
+            <td id="format39">
+                <i class="far fa-moon" aria-hidden="true"></i>
+            </td>
+            <td id="format40">
+                <i class="fas fa-smile" aria-hidden="true"></i>
+            </td>
+            <td id="format41">
+                <i class="far fa-smile" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format42">
+                <i class="fas fa-sun fa-fw"></i>
+            </td>
+            <td id="format43">
+                <i class="far fa-sun fa-fw"></i>
+            </td>
+            <td id="format44">
+                <i class="fas fa-square" aria-hidden="true"></i>
+            </td>
+            <td id="format45">
+                <i class="far fa-square" aria-hidden="true"></i>
+            </td>
+            <td id="format46">
+                <i class="fas fa-lemon" aria-hidden="true"></i>
+            </td>
+            <td id="format47">
+                <i class="far fa-lemon fa-fw"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format48">
+                <i class="fa fa-dot-circle" aria-hidden="true"></i>
+            </td>
+            <td id="format49">
+                <i class="far fa-dot-circle" aria-hidden="true"></i>
+            </td>
+            <td id="format50">
+                <i class="fas fa-bullseye" aria-hidden="true"></i>
+            </td>
+            <td id="format51">
+                <i class="fas fa-star" aria-hidden="true"></i>
+            </td>
+            <td id="format52">
+                <i class="far fa-star" aria-hidden="true"></i>
+            </td>
+            <td id="format53">
+                <i class="fa fa-spinner fa-pulse fa-fw"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format54">
+                <i class="fa fa-asterisk fa-spin fa-fw"></i>
+            </td>
+            <td id="format55">
+                <i class="far fa-snowflake fa-spin fa-fw"></i>
+            </td>
+            <td id="format56">
+                <i class="fa fa-life-ring fa-spin fa-fw"></i>
+            </td>
+            <td id="format57">
+                <i class="far fa-life-ring fa-spin fa-fw"></i>
+            </td>
+            <td id="format58">
+                <i class="far fa-sun fa-spin fa-fw"></i>
+            </td>
+            <td id="format59">
+                <i class="fa fa-sun fa-spin fa-fw"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="format60">
+                <i class="fa fa-certificate fa-spin fa-fw"></i>
+            </td>
+            <td id="format61">
+                <i class="fa fa-circle-notch fa-spin fa-fw"></i>
+            </td>
+            <td id="format62">
+                <i class="fa fa-cog fa-spin fa-fw"></i>
+            </td>
+            <td id="format63">
+                <i class="fa fa-futbol fa-spin fa-fw"></i>
+            </td>
+            <td id="format64">
+                <i class="fa fa-compass fa-spin fa-fw"></i>
+            </td>
+            <td id="format65">
+                <i class="far fa-compass fa-spin fa-fw"></i>
+            </td>
+        </tr>
+    </table>
+    <!--<br>-->
+    <table id="dynamics-grid">
+        <tr>
+            <td id="dynamics0">
+                <i class="fa fa-adjust fa-spin fa-fw animated infinite flip" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics1">
+                <i class="fa fa-adjust fa-spin fa-fw animated infinite flash" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics2">
+                <i class="fa fa-adjust fa-fw animated infinite pulse" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics3">
+                <i class="fa fa-adjust fa-fw animated infinite rubberBand" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics4">
+                <i class="fa fa-adjust animated infinite bounce" aria-hidden="true"></i>
+            </td>
+        </tr>
+        <tr>
+            <td id="dynamics5">
+                <i class="fa fa-adjust animated infinite shake" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics6">
+                <i class="fa fa-adjust animated infinite swing" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics7">
+                <i class="fa fa-adjust animated infinite tada" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics8">
+                <i class="fa fa-adjust animated infinite wobble" aria-hidden="true"></i>
+            </td>
+            <td id="dynamics9">
+                <i class="fa fa-adjust animated infinite jello" aria-hidden="true"></i>
+            </td>
+        </tr>
+    </table>
+
+
+    <!--<p></p>-->
+    <table id="colors-grid">
+        <!--<tr id="colrow3">-->
+            <!--<td bgcolor="#f9728d" class=" animated infinite tada">-->
+
+            <!--</td>-->
+            <!--<td bgcolor="#fa8aa0">-->
+
+            <!--</td>-->
+            <!--<td bgcolor="#fba3b4">-->
+            <!--</td>-->
+            <!--<td bgcolor="#fcbbc8"></td>-->
+            <!--<td bgcolor="#fdd3dc"></td>-->
+        <!--</tr>-->
+
+    </table>
+</div>
+<!--<h1 class="animated infinite pulse">pi<span style="background-color: lightgray" class="animated infinite bounce">x</span>ie mixie</h1>-->
+<h1 id="pixie-mixie">
+    <table>
+        <tr>
+            <td id="pixie0">p</td>
+            <td id="pixie1">i</td>
+            <td id="pixie2">x</td>
+            <td id="pixie3">i</td>
+            <td id="pixie4">e</td>
+            <td id="cursor" class="animated infinite bounce"></td>
+            <td id="mixie4">m</td>
+            <td id="mixie3">i</td>
+            <td id="mixie2">x</td>
+            <td id="mixie1" class="animated infinite bounce">i</td>
+            <td id="mixie0">e</td>
+        </tr>
+    </table>
+</h1>
+<!--<h2>Choose Grid Size</h2>-->
+
+
+<!--<h2>Pick A Color</h2>-->
+<!--<input type="color" id="colorPicker">-->
+<!--<section class="range-slider">-->
+<!--<form class="range-slider">-->
+<!--<div class="range-control">-->
+<!--<input id="inputRangeold" type="range" min="100" max="250" step="5" value="200" data-thumbwidth="20">-->
+<!--<output name="rangeVal">50</output>-->
+<!--</div>-->
+<!--<table id="pixel_canvasold2"></table>-->
+<!--</form>-->
+<!--<form class="range-slider">-->
+<!--<div class="range-control">-->
+<!--<input id="inputRange" type="range" min="100" max="250" step="5" value="200" data-thumbwidth="20">-->
+<!--<output name="rangeVal">50</output>-->
+<!--</div>-->
+<!--<table id="pixel_canvas"></table>-->
+<!--</form>-->
+<!--<i class="fa fa-table fa-2x" aria-hidden="true"></i>-->
+<!--<i class="fa fa-eraser fa-2x" aria-hidden="true"></i>-->
+<!--</section>-->
+<table id="drawing-canvas">
+
+</table>
+<script src="js/js.js"></script>
+</body>
+
+</html>

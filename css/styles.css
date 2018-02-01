@@ -1,0 +1,331 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 70px;
+    margin: 0.1em;
+    /*text-decoration: overline underline;*/
+    }
+
+h2 {
+    margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+    margin-top: 0.5em;
+}
+
+span {
+    display: inline-block;
+}
+
+table,
+tr,
+td {
+    border: 1px solid gray;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+#format-grid tr td, #dynamics-grid tr td , #colors-grid tr td {
+    height: 18px;
+    width: 18px;
+}
+
+
+input[type=number] {
+    width: 6em;
+}
+
+#left-sidebar {
+    float: left;
+    width: 9%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+
+}
+
+#left-sidebar > table {
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*For deletion*/
+table #colors-grid {
+    padding: 5px;
+    border: 5px;
+}
+
+.radio {
+    box-shadow: none;
+    border: 0px;
+}
+
+input[name='radio-color'], input[name='radio-bg-color'] {
+    color: darkgray;
+    /*opacity: 0.6;*/
+
+    /*background-color: darkgray;*/
+}
+
+/*Cell formats*/
+#format0, .cell-format-1 {
+    background-color: white;
+
+}
+
+#format1, .cell-format-2 {
+    background-color: white;
+    box-shadow: inset 0 0 0 0.1em black;
+}
+
+#format2, .cell-format-3 {
+    background-color: white;
+    box-shadow: inset 0 0 0 0.2em black;
+}
+
+#format3, .cell-format-4 {
+    background-color: white;
+    box-shadow: inset 0 0 0 0.3em black;
+}
+
+#format4, .cell-format-5 {
+    background-color: white;
+    box-shadow: inset 0 0 0 0.4em black;
+}
+
+#format5, .cell-format-6 {
+    background-color: white;
+    box-shadow: inset 0 0 0 0.5em black;
+}
+
+#format6, .cell-format-7 {
+    background-color: white;
+    box-shadow: inset 0 0 0.4em 0.0em black;
+
+}
+
+#format7, .cell-format-8 {
+    background-color: white;
+    box-shadow: inset 0 0 0.2em 0.1em black;
+}
+
+#format8, .cell-format-9 {
+    background-color: white;
+    box-shadow: inset 0 0 0.3em 0.2em black;
+}
+
+#format9, .cell-format-10 {
+    background-color: white;
+    box-shadow: inset 0 0 0.4em 0.3em black;
+}
+
+#format10, .cell-format-11 {
+    background-color: white;
+    box-shadow: inset 0 0 0.45em 0.35em black;
+}
+
+#format11, .cell-format-12 {
+    background-color: white;
+    box-shadow: inset 0 0 0.45em 0.45em black;
+}
+
+/*Grid creator dialog styles*/
+#grid-creator-popup {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    /*margin-top: 200;*/
+    vertical-align: center;
+    horiz-align: center;
+    top: 220px;
+    background-color: white;
+    padding: 50px;
+    border-radius: 2em;
+    box-shadow: 0 0 70px 20px white;
+    border-color: lightgray;
+    border-style: solid;
+}
+
+#cell-size-select {
+    border-color: transparent;
+}
+
+
+
+/*TODO temp*/
+.cell {
+    /*height : 16px;*/
+    /*width : 16px;*/
+    /*border: 1px solid black;*/
+    /*background-color: black;*/
+    border-radius: 1px;
+}
+
+#drawing-canvas {
+    border-spacing: 1px;
+    border-color: transparent;
+    border-style: none;
+}
+
+#drawing-canvas>tr, #drawing-canvas>tr>td {
+    /*border-style: none;*/
+    border-color: darkgray;
+}
+
+.border-off {
+  border-color: transparent;
+}
+
+#pixie0, #pixie1, #pixie2, #pixie3, #pixie4 {
+    text-shadow: 2px 2px 3px black;
+}
+
+#mixie0, #mixie1, #mixie2, #mixie3, #mixie4 {
+    text-shadow: 2px 2px 3px white;
+}
+
+#buttons {
+    position: absolute;
+    top: 0;
+    right:0;
+    padding-top: 1.5em;
+    padding-right: 1.5em;
+    /*background-color: rgba(255,255,255,0.4);*/
+    /*filter: drop-shadow(2 2 30px white);*/
+
+}
+
+#buttons>span {
+    background-color: rgba(255,255,255,0.5);
+}
+
+#buttons>span:hover {
+    background-color: rgba(255,255,255,1);
+}
+
+
+
+.slider {
+  display: flex;
+  justify-content: center;
+}
+
+.range-slider {
+  width: 200px;
+  padding-top: 15px;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.range-control {
+  position: relative;
+}
+
+input[type=range] {
+  display: block;
+  width: 100%;
+  margin: 0;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  position: relative;
+  height: 12px;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+  background-color: #e2e2e2;
+  -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  position: relative;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  -webkit-appearance: none;
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 -1px 2px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: inset 0 -1px 2px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+output {
+  position: absolute;
+  top: -32px;
+  display: none;
+  width: 50px;
+  height: 24px;
+  border: 1px solid #e2e2e2;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #777;
+  font-size: .8em;
+  line-height: 24px;
+  text-align: center;
+}
+
+input[type=range]:active + output {
+  display: block;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+
+/*Based on: https://codepen.io/simurai/pen/rJwpz?q=radio&order=popularity&depth=everything&show_forks=false*/
+/*All browser version available on: http://jsfiddle.net/ryanseddon/FeJT2/*/
+
+input.radio {
+  -webkit-appearance: none; /* remove default */
+  display: block;
+  margin: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,100%,.1) 0 0 0 1px;
+  background-color: hsla(0,0%,100%,.2);
+  background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,100%,1) 15%, hsla(200,100%,30%,.7) 28%, hsla(200,100%,30%,0.3) 70% );
+  background-repeat: no-repeat;
+  -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+    -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+  outline: none;
+}
+input:checked {
+  -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+    -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+}
+input:active {
+  -webkit-transform: scale(1.5);
+  -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+}
+
+
+
+
+/* The up/down direction logic */
+
+input,
+input:active {
+  background-position: 0 24px;
+}
+input:checked {
+  background-position: 0 0;
+}
+input:checked ~ input,
+input:checked ~ input:active {
+  background-position: 0 -24px;
+}
