@@ -1,6 +1,6 @@
 # PIXIE MIXIE - crazy pixel art maker
 
-
+[pixie-mixie link](https://vladimirov1.github.io/pixie-mixie/)
 
 ## General
 
@@ -29,4 +29,11 @@ Since this is my first frontend project, if you expect concise and well structur
   ## How to use?
 
   ![Usage sample](/UsageSample.gif)
+
+  ## TODO
+
+  - [ ] Help system - contextual
+  - [ ] Recreate interface if necessary
+  - [ ] Finish planned functionality
+  - [ ] Awesome cursors to be added as helper.
   ​
