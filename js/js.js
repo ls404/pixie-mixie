@@ -361,7 +361,7 @@ let selectBgColorPalette = function (paletteNr) {
         $("#mixie4").css("background-color", COLOR_PALETTES[paletteNr][4]);
         //Draw cursor between pixie and mixie (this is sample drawing) - external function
         //TODO when all other parts are finished.
-        alert("Draw sample cursor!")
+        // alert("Draw sample cursor!")
     }
     //Change "pixie" colors
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
@@ -379,10 +379,10 @@ $("#dynamics-grid").on("click", "td", function () {
         // characteristics.type = FORMATS[trId][0];
         // alert(DYNAMICS[trId], characteristics.dynamicsString);
         if (characteristics.dynamicStringId !=="") {
-            $("#" + characteristics.dynamicStringId.toString()).css("background-color", "");
+            $(("#" + characteristics.dynamicStringId.toString())).css("background-color", "");
         }
         characteristics.dynamicStringId = trId;
-        $("#" + characteristics.dynamicStringId.toString()).css("background-color", "red");
+        $(("#" + characteristics.dynamicStringId.toString())).css("background-color", "red");
         characteristics.dynamicsString = DYNAMICS[trId];
         // characteristics.faString = FORMATS[trId][1];
         // characteristics.styleName = FORMATS[trId][1];
@@ -404,27 +404,67 @@ $("#format-grid").on("click", "td", function () {
     let trId = $(this).attr('id'); // table row ID
     let trIdNum = getNrOnly(trId);
     if (characteristics.formatArray !== FORMATS[trId]) {
-        alert("YAY, they are different! Dynamics to be changed");
+        // alert("YAY, they are different! Dynamics to be changed");
         $("#"+characteristics.formatArrayId.toString()).css("background-color", "");
         characteristics.formatArrayId = trId;
         $("#"+characteristics.formatArrayId.toString()).css("background-color", "red");
         characteristics.formatArray = FORMATS[trId];
-        alert(FORMATS[trId]);
+        // alert(FORMATS[trId]);
         //TODO change characteristic.faStringFull to include in class dynamics      at least when faform, if formatted TBD
     }
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
-    alert("Message format selected")
+    // alert("Message format selected")
 });
 
 $("#pixie-mixie").on("click", "td", function () {
     //Exclude Id="cursor" from the event
     //Get cell Id
-    let trId = $(this).closest('tr').attr('id'); // table row ID
+    let trId = $(this).attr('id'); // table row ID
     let trIdNum = getNrOnly(trId);
-    console.log(trId);
+    let trIdNonNum = getNonNrOnly(trId);
+    console.log(trId, trIdNum,trIdNonNum);
+    if (trIdNonNum === "pixie") {
+        if (trIdNum != characteristics.colorNr) {
+            changeColorFromPalette(trIdNum)
+        }
+
+    } else if (trIdNonNum === "mixie") {
+        if (trIdNum != characteristics.bgColorNr) {
+            changeBgColorFromPalette(trIdNum)
+        }
+
+    }
+
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
-    alert("Message dynamics selected")
+
 });
+
+let changeColorFromPalette = function (newColNr) {
+    console.log(characteristics.colorNr, newColNr);
+    if (characteristics.colorNr !== "") {
+        $("#pixie"+characteristics.colorNr.toString(
+        )).removeClass()
+    }
+
+    $("#pixie"+newColNr.toString(
+        )).addClass("animated infinite flipInX");
+    characteristics.colorNr = newColNr;
+    characteristics.color = COLOR_PALETTES[characteristics.activePalete][newColNr];
+
+}
+
+let changeBgColorFromPalette = function (newBgColNr) {
+    console.log(characteristics.bgColorNr, newBgColNr);
+    if (characteristics.bgColorNr !== "") {
+        $("#mixie"+characteristics.bgColorNr.toString(
+        )).removeClass()
+    }
+
+    $("#mixie"+newBgColNr.toString(
+        )).addClass("animated infinite flipInX");
+    characteristics.bgColorNr = newBgColNr;
+    characteristics.bgColor = COLOR_PALETTES[characteristics.activeBgPalette][newBgColNr];
+}
 
 // $(cell).on("click",function () {
 //     alert("I'm drawing!");
@@ -529,6 +569,7 @@ let emptyCellsRandom = function () {
   // Arrow function with implied return used to extract numbers from ID's
 let getNrOnly = str => Number(str.replace(/\D/g,''));
 
+let getNonNrOnly = str => str.replace(/\d/g,'');
 
 //Uses global variable! Visualizes cell size selection.
 let visualizeSizeSelected = function () {
