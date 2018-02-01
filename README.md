@@ -26,4 +26,7 @@ Since this is my first frontend project, if you expect concise and well structur
 
   This is not graphical editor, but CSS effects fixer. This unexpected capabilities allows interesting side effects. 
 
+  ## How to use?
+
+  ![Usage sample](/UsageSample.gif)
   ​
