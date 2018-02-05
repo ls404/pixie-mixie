@@ -2,9 +2,9 @@ body {
     text-align: center;
 }
 
-h1 {
+#pixie-mixie {
     font-family: 'Fascinate Inline', cursive;
-    font-size: 70px;
+    font-size: 2em;
     margin: 0.1em;
     /*text-decoration: overline underline;*/
     }
@@ -21,9 +21,13 @@ span {
     display: inline-block;
 }
 
-table,
-tr,
-td {
+/*table,*/
+/*tr,*/
+/*td {*/
+    /*border: 1px solid gray;*/
+/*}*/
+
+.hasborder {
     border: 1px solid gray;
 }
 
@@ -44,9 +48,8 @@ input[type=number] {
 
 #left-sidebar {
     float: left;
-    width: 9%;
+    /*width: 9%;*/
     background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 10px;
 
 }
 
@@ -192,11 +195,12 @@ input[name='radio-color'], input[name='radio-bg-color'] {
 }
 
 #buttons {
-    position: absolute;
     top: 0;
     right:0;
-    padding-top: 1.5em;
+    position: absolute;
+    padding-top: 0.5em;
     padding-right: 1.5em;
+    alignment: center;
     /*background-color: rgba(255,255,255,0.4);*/
     /*filter: drop-shadow(2 2 30px white);*/
 
