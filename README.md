@@ -4,7 +4,7 @@
 
 ## General
 
-This project is the final of my **Udacity Google code challenge - frontend** training.
+This project is the final of my **Udacity Google code challenge - frontend** scholarship.
 
 Since this is my first frontend project, if you expect concise and well structured code, please look somewhere else. Code quality however will be increased gradually.
 
