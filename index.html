@@ -29,7 +29,7 @@
 <body>
 <nav class="navbar ">
     <!--<h1 class="animated infinite pulse">pi<span style="background-color: lightgray" class="animated infinite bounce">x</span>ie mixie</h1>-->
-    <span id="pixie-mixie">
+    <span id="pixie-mixie" class="tooltip is-tooltip-right" data-tooltip="Select colors only from selected templates." >
     <table>
         <tr>
             <td id="pixie0">p</td>
@@ -37,7 +37,7 @@
             <td id="pixie2">x</td>
             <td id="pixie3">i</td>
             <td id="pixie4">e</td>
-            <td id="cursor"></td>
+            <!--<td id="cursor">   </td>-->
             <td id="mixie4">m</td>
             <td id="mixie3">i</td>
             <td id="mixie2">x</td>
@@ -46,15 +46,21 @@
         </tr>
     </table>
 </span>
+    <table>
+        <tr>
+            <td class="button tooltip is-tooltip-bottom" id="cursor" data-tooltip="Sample cell/pixel"> </td>
+        </tr>
+    </table>
 
     <span id="buttons">
 
      <!--TODO-->
-        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="random-palettes">
+        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Random colors from selected palettes." id="random-palettes" disabled>
             <i class="far fa-edit fa-1x" aria-hidden="true"></i>
         </button>
+        <!--TODO-->
         <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here"
-                id="random-color-from-palettes">
+                id="random-color-from-palettes" disabled>
             <i class="fas fa-pencil-alt fa-1x" aria-hidden="true"></i>
         </button>
         <!--TODO-->
@@ -62,31 +68,29 @@
             <i class="fas fa-music fa-1x" aria-hidden="true"></i>
         </button>
         <!--TODO-->
-        <!--TODO-->
-        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="fill-all">
+        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="fill-all" disabled>
             <i class="fas fa-paint-brush fa-1x" aria-hidden="true"></i>
         </button>
         <!--TODO-->
         <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="all-dynamics">
             <i class="fa fa-cog fa-spin fa-1x" aria-hidden="true"></i>
         </button>
-        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Show.hide sidebar."
+        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Show/hide sidebar."
                 id="show-left-sidebar">
             <i class="fa fa-bars fa-1x" aria-hidden="true"></i>
         </button>
-        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="show-grid">
+        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Show/hide grid." id="show-grid">
             <i class="fa fa-th fa-1x" aria-hidden="true"></i>
         </button>
-        <!--TODO-->
         <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Erases fill, but not shape and shadow."
                 id="eraser">
             <i class="fa fa-eraser fa-1x" aria-hidden="true"></i>
         </button>
-        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="reset">
+        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Draw NEW grid/canvas !!!" id="reset">
             <i class="far fa-trash-alt fa-1x" aria-hidden="true"></i>
         </button>
         <!--TODO-->
-        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="Some text here" id="TODO2">
+        <button class="button is-light tooltip is-tooltip-bottom" data-tooltip="" id="TODO2" disabled>
             <i class="far fa-question-circle fa-1x" aria-hidden="true"></i>
         </button>
     </span>
@@ -132,7 +136,7 @@
 <div class="columns">
     <div class="column is-1" id="left-sidebar">
 
-        <table id="format-grid">
+        <table id="format-grid" class="tooltip is-tooltip-right" data-tooltip="Cell format or shape. Top left is single color, without shadow.">
             <tr>
                 <td id="format0" class="cell-format-1"></td>
                 <td id="format1" class="cell-format-2"></td>
@@ -331,7 +335,7 @@
             </tr>
         </table>
         <!--<br>-->
-        <table id="dynamics-grid">
+        <table id="dynamics-grid" class="tooltip is-tooltip-right" data-tooltip="Cell dynamics/animation or static if none.">
             <tr>
                 <td id="dynamics0">
                     <i class="fa fa-adjust fa-spin fa-fw animated infinite flip" aria-hidden="true"></i>
@@ -370,19 +374,8 @@
 
 
         <!--<p></p>-->
-        <table id="colors-grid">
-            <!--<tr id="colrow3">-->
-            <!--<td bgcolor="#f9728d" class=" animated infinite tada">-->
+        <table id="colors-grid" class="tooltip is-tooltip-right" data-tooltip="Left, right or middle mouse click for color options.">
 
-            <!--</td>-->
-            <!--<td bgcolor="#fa8aa0">-->
-
-            <!--</td>-->
-            <!--<td bgcolor="#fba3b4">-->
-            <!--</td>-->
-            <!--<td bgcolor="#fcbbc8"></td>-->
-            <!--<td bgcolor="#fdd3dc"></td>-->
-            <!--</tr>-->
 
         </table>
     </div>

@@ -32,10 +32,9 @@ Since this is my first frontend project, if you expect concise and well structur
 
   ## TODO
 
-  - [ ] New interface - old one limiting quick selection to palettes only (in order to limit colourfulness) is not intuitive
-  - [ ] Move to Bulma.
-  - [ ] Help system - contextual
-  - [ ] Recreate interface if necessary
+  - [x] New interface - old one limiting quick selection to palettes only (in order to limit colourfulness) is not intuitive
+  - [x] Move to Bulma.
+  - [x] Help system - contextual
   - [ ] Finish planned functionality
   - [ ] Awesome cursors to be added as helper.
-  ​
+  ​- [ ] Fix new grid buggy modal with standard modal from Bulma.
