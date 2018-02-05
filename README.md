@@ -4,9 +4,9 @@
 
 ## General
 
-This project is the final of my **Udacity Google code challenge - frontend** training.
+This project is the final of my **Udacity Google code challenge - frontend** scholarship.
 
-Since this is my first frontend project, if you expect concise and well structured code, please look somewhere else. (You can always ask Linus Torvalds which code is written well.)
+Since this is my first frontend project, if you expect concise and well structured code, please look somewhere else. Code quality however will be increased gradually.
 
 ## F.A.Q
 
@@ -32,6 +32,8 @@ Since this is my first frontend project, if you expect concise and well structur
 
   ## TODO
 
+  - [ ] New interface - old one limiting quick selection to palettes only (in order to limit colourfulness) is not intuitive
+  - [ ] Move to Bulma.
   - [ ] Help system - contextual
   - [ ] Recreate interface if necessary
   - [ ] Finish planned functionality
