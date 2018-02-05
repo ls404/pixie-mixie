@@ -367,7 +367,7 @@ let changeBgColorFromPalette = function (newBgColNr) {
     characteristics.bgColor = COLOR_PALETTES[characteristics.activeBgPalette][newBgColNr];
 }
 
-
+// Dunctions for drawing cells(pixels) in table
   table.on('mousedown', cell, function(event) {
     event.preventDefault();
     drawCell(this);
@@ -476,7 +476,7 @@ let visualizeSizeSelected = function () {
         let forReplacing = "#size" + i.toString();
         if (cellSizeNumber === i) {
             // If this size is selected:
-            sizeString = "<i class=\"fa fa-adjust fa-spin fa-" + i.toString() + "x \" aria-hidden=\"true\">";
+            sizeString = "<i class=\"far fa-square fa-spin fa-" + i.toString() + "x \" aria-hidden=\"true\">";
             if (sizeString !== $(forReplacing)) {
                 $(forReplacing).empty();
                 $(forReplacing).append(sizeString);
@@ -487,7 +487,7 @@ let visualizeSizeSelected = function () {
         } else {
             // If size is not selected
             console.log("Cell not the size>>>>");
-            sizeString = "<i class=\"fa fa-adjust fa-" + i.toString() + "x\" aria-hidden=\"true\">";
+            sizeString = "<i class=\"far fa-square fa-" + i.toString() + "x\" aria-hidden=\"true\">";
             if (sizeString !== $(forReplacing)) {
                 $(forReplacing).empty();
                 $(forReplacing).append(sizeString);
@@ -498,57 +498,41 @@ let visualizeSizeSelected = function () {
     }
 };
 
-/* initialSize();*/
+// Selection of cell(pixel) size
 
 $('#size1').on("click", function () {
     cellSizeNumber = 1;
-    cellSize = CELL_SIZE_LIST[cellSizeNumber - 1];
-    visualizeSizeSelected();
-    gridXmax = Math.floor(CANVAS_X_SIZE_PX / cellSize);
-    selectRangeX.attr("max", gridXmax);
-    gridYmax = Math.floor(CANVAS_Y_SIZE_PX / cellSize);
-    selectRangeY.attr("max", gridYmax);
+    sizeSelected();
 });
 
 $('#size2').on("click", function () {
     cellSizeNumber = 2;
-    cellSize = CELL_SIZE_LIST[cellSizeNumber - 1];
-    visualizeSizeSelected();
-    gridXmax = Math.floor(CANVAS_X_SIZE_PX / cellSize);
-    selectRangeX.attr("max", gridXmax);
-    gridYmax = Math.floor(CANVAS_Y_SIZE_PX / cellSize);
-    selectRangeY.attr("max", gridYmax);
+    sizeSelected();
 });
 
 $('#size3').on("click", function () {
     cellSizeNumber = 3;
-    cellSize = CELL_SIZE_LIST[cellSizeNumber - 1];
-    visualizeSizeSelected();
-    gridXmax = Math.floor(CANVAS_X_SIZE_PX / cellSize);
-    selectRangeX.attr("max", gridXmax);
-    gridYmax = Math.floor(CANVAS_Y_SIZE_PX / cellSize);
-    selectRangeY.attr("max", gridYmax);
+    sizeSelected();
 });
 
 $('#size4').on("click", function () {
     cellSizeNumber = 4;
-    cellSize = CELL_SIZE_LIST[cellSizeNumber - 1];
-    visualizeSizeSelected();
-    gridXmax = Math.floor(CANVAS_X_SIZE_PX / cellSize);
-    selectRangeX.attr("max", gridXmax);
-    gridYmax = Math.floor(CANVAS_Y_SIZE_PX / cellSize);
-    selectRangeY.attr("max", gridYmax);
+    sizeSelected();
 });
 
 $('#size5').on("click", function () {
     cellSizeNumber = 5;
+    sizeSelected();
+});
+
+let sizeSelected = function () {
     cellSize = CELL_SIZE_LIST[cellSizeNumber - 1];
     visualizeSizeSelected();
     gridXmax = Math.floor(CANVAS_X_SIZE_PX / cellSize);
     selectRangeX.attr("max", gridXmax);
     gridYmax = Math.floor(CANVAS_Y_SIZE_PX / cellSize);
     selectRangeY.attr("max", gridYmax);
-});
+}
 
 
 let initColorsGrid = function () {
