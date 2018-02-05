@@ -29,7 +29,7 @@ let gridXmax = 20; //Maximum grid size alowed. Can be changed depending on curso
 let gridYmax = 20; // Same as X ^
 let gridX = 60;
 let gridY = 50;
-const CANVAS_X_SIZE_PX = 1400; //Used to calculate maximum horizontal cells depending of cell size
+const CANVAS_X_SIZE_PX = 1500; //Used to calculate maximum horizontal cells depending of cell size
 const CANVAS_Y_SIZE_PX = 800;  //Used to calculate maximum vertical cells depending of cell size
 const table = $("#drawing-canvas");
 const cell = (".cell");
@@ -37,6 +37,7 @@ const cell = (".cell");
 
 // List of available color values
 // selected from  http://www.color-hex.com/color-palettes/
+// TODO adding 'erase' color e.g. no color ''- undefined is planned. Include them together with black, white and ?? ??
 const COLOR_PALETTES = [
     //One color palettes
     ["#fffcb8", "#fffba7", "#fff988", "#fef65b", "#fbf028", "The Yellows of Dodie"],
