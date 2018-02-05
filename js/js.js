@@ -1,46 +1,4 @@
-// Select color input
-// Select size input
 
-// When size is submitted by the user, call makeGrid()
-
-// $("#flippy").mouseenter(this.toggleClass("flip"))
-// $('#flippy').mouseleave($('#flippy').removeClass("flip"))
-//
-// let color="#000";
-// let mouseState="up";
-//
-// $("#colorPicker").change(function (){color=$(this).val();})
-//
-//
-// $("#sizePicker").children().last().click(
-// function makeGrid() {
-//   const h=$("#input_height").val();
-//   const w=$("#input_width").val();
-//   const t=$("#pixel_canvas");
-//   let string="";
-//   t.children().remove();
-//   for(let r=0; r<h; r++)
-//   {
-//     string="<tr>";
-//     for(let c=0; c<w; c++)
-//     {
-//       string+="<td></td>";
-//     }
-//     string+="</tr>";
-//     t.append(string);
-//   }
-//   $("td").mousedown(function(){
-//     $(this).attr("bgcolor",color);
-//     mouseState="down"
-//   });
-//   t.mouseup(function(){mouseState="up"});
-//   t.mouseleave(function(){mouseState="up"});
-//   $("td").mouseover(function(){//)mouseover(function (){
-//     if(mouseState==="down"){
-//       $(this).attr("bgcolor",color);
-//     }
-//   });
-// });
 
 // Included are main characteristics for draving new cells
 // Cell size is not included since is defined in advance and is also global variable
@@ -79,7 +37,6 @@ const cell = (".cell");
 
 // List of available color values
 // selected from  http://www.color-hex.com/color-palettes/
-// TODO adding 'erase' color e.g. no color ''- undefined is planned. Include them together with black, white and ?? ??
 const COLOR_PALETTES = [
     //One color palettes
     ["#fffcb8", "#fffba7", "#fff988", "#fef65b", "#fbf028", "The Yellows of Dodie"],
@@ -192,44 +149,6 @@ const DYNAMICS = {
     "dynamics9": "animated infinite jello"
 };
 
-//To be deletted TODO
-// const shapeList = {
-//     shape1: ['formatted', ".cell-format-1"],
-//     shape2: ['formatted', ".cell-format-2"],
-//     shape3: ['formatted', ".cell-format-3"],
-//     shape4: ['formatted', ".cell-format-4"],
-//     shape5: ['formatted', ".cell-format-5"],
-//     shape6: ['formatted', ".cell-format-6"],
-//     shape7: ['formatted', ".cell-format-7"],
-//     shape9: ['formatted', ".cell-format-8"],
-//     shape10: ['formatted', ".cell-format-9"],
-//     shape11: ['shape', "paw"],
-//     shape12: ['shape', "adjust"],
-//     shape13: ['shape', "asterisk"],
-//     shape14: ['shape', "bars"],
-//     shape15: ['shape', "cloud"],
-//     shape16: ['shape', "circle"],
-//     shape17: ['shape', "circle-o"],
-//     shape18: ['shape', "circle-thin"],
-//     shape19: ['shape', "soccer-ball-o"],
-//     shape20: ['shape', "snowflake-o"],
-//     shape21: ['shape', "sun-o"],
-//     shape22: ['shape', "heart"],
-//     shape23: ['shape', "heart-o"],
-//     shape24: ['shape', "moon-o"],
-//     shape25: ['shape', "smile-o"],
-//     shape26: ['shape', "spinner"],
-//     shape27: ['shape', "square"],
-//     shape28: ['shape', "square-o"],
-//     shape29: ['shape', "star"],
-//     shape30: ['shape', "star-o"],
-//     shape31: ['shape', "spinner fa-spin fa-fw"],
-//     shape32: ['shape', "circle-o-notch fa-spin"],
-//     shape33: ['shape', "refresh fa-spin fa-fw"],
-//     shape34: ['shape', "cog fa-spin fa-fw"],
-//     shape35: ['shape', "spinner fa-pulse fa-fw"]
-// }
-
 
 // Used to set 5 diferent cell sizes - related to the sizes of Fonts awesome icons
 const CELL_SIZE_LIST = [16, 32, 48, 64, 80];
@@ -283,13 +202,12 @@ $('#reset').on("click", function () {
 
 $("#show-grid").on("click", function() {
 
-  alert("Border off");
+  Console.log("Border off to be finished");
   $("#drawing-canvas>tr").toggleClass("border-off");
   $("#drawing-canvas>td").toggleClass("border-off");
 });
 
 $("#eraser").on("click", function() {
-    // alert("Eraser started?");
     emptyCellsRandom();
 
 });
@@ -307,8 +225,7 @@ $("#colors-grid").on("click", "input.select-color-palette", function () {
     //Get table color row - tr id for ex. "colrow0"
     let trId = $(this).closest('tr').attr('id'); // table row ID
     let trIdNum = getNrOnly(trId);
-    // alert("color selected:" + trId.toString()+"   Nr: "+trIdNum.toString());
-    //All other tasks are don in separate function which can be used also for initialisation:
+    //All other tasks are done in separate function which can be used also for initialisation:
     selectColorPalette(trIdNum);
 });
 
@@ -319,7 +236,6 @@ let selectColorPalette = function (paletteNr) {
         //Set color as characteristics.color
         characteristics.activePalete = paletteNr;
         characteristics.color = COLOR_PALETTES[paletteNr][characteristics.colorNr];
-        // alert(characteristics.activePalete, characteristics.color,COLOR_PALETTES[paletteNr],COLOR_PALETTES[paletteNr][characteristics.colorNr]);
         //Change "pixie" colors
         $("#pixie0").css("color", COLOR_PALETTES[paletteNr][0]);
         $("#pixie1").css("color", COLOR_PALETTES[paletteNr][1]);
@@ -327,8 +243,6 @@ let selectColorPalette = function (paletteNr) {
         $("#pixie3").css("color", COLOR_PALETTES[paletteNr][3]);
         $("#pixie4").css("color", COLOR_PALETTES[paletteNr][4]);
         //Draw cursor between pixie and mixie (this is sample drawing) - external function
-        //TODO when all other parts are finished also adjust.
-        // alert("Draw sample cursor!")
     }
     //Change "pixie" colors
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
@@ -339,10 +253,8 @@ $("#colors-grid").on("click", "input.select-background-palette", function () {
     //Get table color row - tr id for ex. "colrow0"
     let trId = $(this).closest('tr').attr('id'); // table row ID
     let trIdNum = getNrOnly(trId);
-    // alert("color selected:" + trId.toString()+"   Nr: "+trIdNum.toString());
     //All other tasks are don in separate function which can be used also for initialisation:
     selectBgColorPalette(trIdNum);
-    // alert("Message colorBG selected")
 });
 
 let selectBgColorPalette = function (paletteNr) {
@@ -352,7 +264,6 @@ let selectBgColorPalette = function (paletteNr) {
         //Set color as characteristics.color
         characteristics.activeBgPalette = paletteNr;
         characteristics.bgColor = COLOR_PALETTES[paletteNr][characteristics.bgColorNr];
-        // alert(characteristics.activeBgPalette, characteristics.bgColor,COLOR_PALETTES[paletteNr],COLOR_PALETTES[paletteNr][characteristics.bgColorNr]);
         //Change "pixie" colors
         $("#mixie0").css("background-color", COLOR_PALETTES[paletteNr][0]);
         $("#mixie1").css("background-color", COLOR_PALETTES[paletteNr][1]);
@@ -361,8 +272,7 @@ let selectBgColorPalette = function (paletteNr) {
         $("#mixie4").css("background-color", COLOR_PALETTES[paletteNr][4]);
         //Draw cursor between pixie and mixie (this is sample drawing) - external function
         //TODO when all other parts are finished.
-        // alert("Draw sample cursor!")
-    }
+        }
     //Change "pixie" colors
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
 };
@@ -372,31 +282,23 @@ $("#dynamics-grid").on("click", "td", function () {
     //Get cell Id
     let trId = $(this).attr('id'); // table row ID
     let trIdNum = getNrOnly(trId);
-    // alert(trIdNum.toString()+"     "+trId.toString());
     console.log(trIdNum, trId);
     if (characteristics.dynamicsString !== DYNAMICS[trId]) {
-        // alert("YAY, they are different! Dynamics to be changed");
         // characteristics.type = FORMATS[trId][0];
-        // alert(DYNAMICS[trId], characteristics.dynamicsString);
         if (characteristics.dynamicStringId !=="") {
             $(("#" + characteristics.dynamicStringId.toString())).css("background-color", "");
         }
         characteristics.dynamicStringId = trId;
         $(("#" + characteristics.dynamicStringId.toString())).css("background-color", "red");
         characteristics.dynamicsString = DYNAMICS[trId];
-        // characteristics.faString = FORMATS[trId][1];
-        // characteristics.styleName = FORMATS[trId][1];
-        //TODO change characteristic.faStringFull to include in class dynamics      at least when faform, if formatted TBD
-    } else {
+           } else {
         // Remove white background!!!first
-        // alert("dynamics deleted!");
         $("#"+characteristics.dynamicStringId).css("background-color", "");
         characteristics.dynamicStringId = "";
         characteristics.dynamicsString = "";
 
     }
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
-    // alert("Message dynamics WAS selected")
 });
 
 $("#format-grid").on("click", "td", function () {
@@ -404,18 +306,16 @@ $("#format-grid").on("click", "td", function () {
     let trId = $(this).attr('id'); // table row ID
     let trIdNum = getNrOnly(trId);
     if (characteristics.formatArray !== FORMATS[trId]) {
-        // alert("YAY, they are different! Dynamics to be changed");
         $("#"+characteristics.formatArrayId.toString()).css("background-color", "");
         characteristics.formatArrayId = trId;
         $("#"+characteristics.formatArrayId.toString()).css("background-color", "red");
         characteristics.formatArray = FORMATS[trId];
-        // alert(FORMATS[trId]);
-        //TODO change characteristic.faStringFull to include in class dynamics      at least when faform, if formatted TBD
-    }
+            }
     //Draw cursor between pixie and mixie (this is sample drawing) - external function
-    // alert("Message format selected")
 });
 
+
+//Select color and background (note that col and bgColor for shapes are switched.
 $("#pixie-mixie").on("click", "td", function () {
     //Exclude Id="cursor" from the event
     //Get cell Id
@@ -466,9 +366,6 @@ let changeBgColorFromPalette = function (newBgColNr) {
     characteristics.bgColor = COLOR_PALETTES[characteristics.activeBgPalette][newBgColNr];
 }
 
-// $(cell).on("click",function () {
-//     alert("I'm drawing!");
-// });
 
   table.on('mousedown', cell, function(event) {
     event.preventDefault();
@@ -488,7 +385,6 @@ let changeBgColorFromPalette = function (newBgColNr) {
 
 
   let drawCell = function (thisCell) {
-      // alert("Draw cell");
       // $(thisCell).css("background-color",characteristics.color);
       if (characteristics.formatArray[0] === "formatted") {
           eraseCell(thisCell);
@@ -498,7 +394,6 @@ let changeBgColorFromPalette = function (newBgColNr) {
       } else {
           eraseShape(thisCell);
           let istring = "<i class=\'"+characteristics.formatArray[1]+ " fa-"+cellSizeNumber+"x "+ characteristics.dynamicsString+" \'></i>"
-                // <i class="fa fa-cog fa-spin fa-3x" aria-hidden="true"></i>
           $(thisCell).append(istring);
           $(thisCell).css("background-color",characteristics.color);
           $(thisCell).css("color",characteristics.bgColor);
@@ -520,6 +415,7 @@ let changeBgColorFromPalette = function (newBgColNr) {
   };
 // This erase deletes only div content i.e. i-tag with fa-shape. Therefore it leaves box shadow and box-shadow animation from first 12 styles/formats
 // to fully delete formatting - use right mouse click!
+// Erase does not erases everithynd, this is not defect but effect!!!
 let eraseShape = function (thisCell) {
       // Remove background color
       // $(thisCell).css('background-color',"");
@@ -653,15 +549,6 @@ $('#size5').on("click", function () {
     selectRangeY.attr("max", gridYmax);
 });
 
-//TODO to be deleted later
-// let visualizeSizeSelectedString = function(size) {
-//     if (cellSizeNumber=size) {
-//
-//     } else {
-//
-//     }
-//
-// }
 
 let initColorsGrid = function () {
     // console.log("SOME LENGTH" + COLOR_PALETTES.length)
@@ -713,11 +600,6 @@ $(document).ready(function () {
 
 });
 
-// TODO remove later
-// pxmx.selectRangeX.attr(max,20);
-// $('range-x').attr("max",'20');
-// console.log('xmax changed!');
-
 //Generate grid
 $('#btn-generate-grid').on("click", function () {
 
@@ -749,19 +631,6 @@ let generateGrid = function (gridX, gridY) {
     table.append(gridContent);
     $(".cell").height(cellSize.toString() + "px");
     $(".cell").width(cellSize.toString() + "px");
-    // emptyCellsRandom();
-
-// TODO this need to create gradual color change - same otherwise can be done with jQueryUI
-//     setTimeout(function () {
-//         for (let z = 0; z < 20; z++) {
-//             $(".cell").css("background-color", "rgba(0,0,0," + ((20 - z) / 20 - 0.05) + ")");
-//             console.log(z)
-//             setTimeout(function () {
-//                 // console.log("time");
-//             }, 800)
-//         }
-//     }, 2000);
-
-    // $("#left-sidebar").show("slow")
+    // emptyCellsRandom(); // If this is uncommented, the colorfull initial grid will be deleted automatically.
 
 };
